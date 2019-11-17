@@ -1,0 +1,1 @@
+./Debug/Shader.cpp.o ./Debug/main.cpp.o

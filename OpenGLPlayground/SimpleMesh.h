@@ -19,8 +19,11 @@ public:
 
 		vertexBuffer = new SimpleVertexBuffer(vertices, numVertices);
 		vertexBuffer->unbind();
-
+#ifdef _WIN32							// nur für Windows
 		shader = new Shader("shaders/basic.vert", "shaders/basic.frag");
+#else
+		shader = new Shader("shaders/basic_raspi.vert", "shaders/basic_raspi.frag");
+#endif
 		modelViewProjMatrixLocation = glGetUniformLocation(shader->getShaderId(), "u_modelViewProj");
 	}
 	~SimpleMesh()
